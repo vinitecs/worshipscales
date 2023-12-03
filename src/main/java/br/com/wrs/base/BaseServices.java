@@ -1,22 +1,32 @@
 package br.com.wrs.base;
+import java.util.UUID;
 
-import br.com.wrs.security.UserSS;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.google.gson.Gson;
-import org.springframework.security.core.context.SecurityContextHolder;
+
+import br.com.wrs.security.UserSS;
 
 //import br.com.vd.bean.UsuarioEmpresa;
 
-public class BC {
+public class BaseServices {
+	
+    
+	
+	public Gson gs = new Gson();
 	protected ApplicationContext context; 	
 	protected DefaultListableBeanFactory beanFactory; 
 
 	//protected UsuarioEmpresa usuarioLogado;
 	
-	public Gson gs = new Gson();
+	
+	
+	public static UserSS isAutenticated() {
+		return (UserSS) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	}
 
 	
 	@Autowired 
@@ -27,15 +37,5 @@ public class BC {
         
         this.context = ctx; 
         this.beanFactory = (DefaultListableBeanFactory) ctx.getAutowireCapableBeanFactory(); 
-    }
-
-
-    public  static  UserSS authenticated() {
-        try {
-            return (UserSS) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        }
-        catch(Exception e) {
-            return null;
-        }
-    }
+    } 	
 }
