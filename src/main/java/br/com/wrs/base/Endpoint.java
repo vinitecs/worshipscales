@@ -7,10 +7,11 @@ import org.springframework.context.ApplicationContext;
 
 import com.google.gson.Gson;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Service;
 
-//import br.com.vd.bean.UsuarioEmpresa;
 
-public class Endpoint {
+@Service
+public class Endpoint<E>{
 
 	protected ApplicationContext context;
 	protected DefaultListableBeanFactory beanFactory; 

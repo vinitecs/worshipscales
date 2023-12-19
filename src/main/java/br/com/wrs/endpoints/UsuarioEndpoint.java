@@ -32,7 +32,7 @@ public class UsuarioEndpoint extends BaseServices{
 	@Consumes({MediaType.APPLICATION_JSON})
 	public ResponseEntity<Object>  createUser(Usuario user) {					
 		user.setSenha(bc.encode(user.getSenha()));
-		dao.post(user);
+		dao.salvar(user);
 
 		return ResponseEntity.ok("ok");
 	}

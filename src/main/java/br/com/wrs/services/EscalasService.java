@@ -11,7 +11,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 @Service
-@Path("/scales")
+@Path("/escalas")
 public class EscalasService extends Endpoint {
 
 	
@@ -22,7 +22,7 @@ public class EscalasService extends Endpoint {
 	@Produces({MediaType.APPLICATION_JSON})
 	@Path("/createScale")
 	public String createScale(@BeanParam Escalas sc) throws Exception{
-		dao.post(sc);
+		dao.salvar(sc);
 		return  gs.toJson("ok");
 	}
 	

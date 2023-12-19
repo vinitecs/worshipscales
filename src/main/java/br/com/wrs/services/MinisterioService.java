@@ -41,7 +41,7 @@ public class MinisterioService extends Endpoint {
 	@Path("/create")
 	@Produces({MediaType.APPLICATION_JSON})
 	public String createMinistry(@BeanParam Ministerio usr) {
-		 dao.post(usr);
+		 dao.salvar(usr);
 		return gs.toJson("ok");
 	}
 	

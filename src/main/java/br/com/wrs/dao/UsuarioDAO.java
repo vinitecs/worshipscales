@@ -96,4 +96,10 @@ public class UsuarioDAO extends DAO{
 		parameters.addValue("perfil",usr.getPerfis().getCod() );
 	}
 
+	@Override
+	public Entidade getById(UUID id) {
+		Usuario	usuario = getEntityManager().find(Usuario.class, id);
+		return usuario;
+	}
+
 }

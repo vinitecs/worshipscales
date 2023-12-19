@@ -7,20 +7,13 @@ import lombok.Setter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-
 @Getter
 @Setter
 @Entity
-@Table(schema = "public", name="escalas")
-public class Escalas extends Entidade {
+@Table(name="instrumento_ministerio")
+public class InstrumentoMinisterio extends Entidade {
 
-
-		@Column(name = "ministerio_id")
-		private Integer minId;
-
-
-		@Column(name = "data_escala")
-		private String dataEscala;
-
+    @Column(name="nome_instrumento")
+    private String nome;
 
 }

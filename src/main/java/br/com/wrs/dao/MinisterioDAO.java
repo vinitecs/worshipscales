@@ -19,7 +19,10 @@ import java.util.UUID;
 @Repository
 public class MinisterioDAO extends DAO{
 	
-	RowMapper<MinisterioDTO> listaMinisterio = new RowMapper<MinisterioDTO>(){	     
+	RowMapper<MinisterioDTO> listaMinisterio;
+
+
+	/*= new RowMapper<MinisterioDTO>(){
 		public MinisterioDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
 			MinisterioDTO min = new MinisterioDTO();
 			
@@ -32,7 +35,7 @@ public class MinisterioDAO extends DAO{
 			
 			return min;
 		}
-	};
+	};*/
 	
 	
 	
@@ -40,13 +43,13 @@ public class MinisterioDAO extends DAO{
 	RowMapper<MinistroDTO> listaMinistro = new RowMapper<MinistroDTO>(){	     
 		public MinistroDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
 			MinistroDTO mins = new MinistroDTO();
-			
+
 			mins.setUsrId(rs.getInt("usr_id"));
 			mins.setNome(rs.getString("nome"));
-			if(rs.getString("tipo_ministerio").equals("m")) {				
+			if(rs.getString("tipo_ministerio").equals("m")) {
 				mins.setInstrumento(getMinistroInstrumento(rs.getInt("usr_id")));
 			}
-			
+
 			return mins;
 		}
 	};
@@ -153,9 +156,9 @@ public class MinisterioDAO extends DAO{
 		String sql = " SELECT INS.ins_id "
 		           + " 	,INS.nome "
 		           + " FROM USUARIOINSTRUMENTOMINISTERIO USRINSMIN "
-		           + " INNER JOIN MINISTERIO MINIS ON MINIS.min_id = USRINSMIN.min_id "
-		           + " INNER JOIN INSTRUMENTO INS ON INS.ins_id = USRINSMIN.ins_id "
-		           + " WHERE USRINSMIN.usr_id =" + usr_id;
+		           + " INNER JOIN MINISTERIO MINIS ON MINIS.id = USRINSMIN.id "
+		           + " INNER JOIN INSTRUMENTO INS ON INS.id = USRINSMIN.id "
+		           + " WHERE USRINSMIN.id =" + usr_id;
 		
 	//	System.out.println(sql);
 		           
@@ -173,9 +176,14 @@ public class MinisterioDAO extends DAO{
 		Ministerio min = (Ministerio) obj;
 
 		parameters = new MapSqlParameterSource();
-		parameters.addValue("nome", min.getNome());
-		parameters.addValue("usr_id_lider", min.getUsuarioLiderId());
+		parameters.addValue("nome", min.getNomeMinisterio());
+		parameters.addValue("usr_id_lider", min.getUsuario().getId());
 
+	}
+
+	@Override
+	public Entidade getById(UUID id) {
+		return null;
 	}
 
 }

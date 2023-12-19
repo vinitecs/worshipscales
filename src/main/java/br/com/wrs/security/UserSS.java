@@ -1,6 +1,8 @@
 package br.com.wrs.security;
 
 import br.com.wrs.enums.Perfil;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,7 +11,8 @@ import java.util.Collection;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
-
+@Getter
+@Setter
 public class UserSS implements UserDetails{
 	
 	

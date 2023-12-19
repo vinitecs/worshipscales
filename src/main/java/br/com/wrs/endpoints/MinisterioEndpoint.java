@@ -42,7 +42,7 @@ public class MinisterioEndpoint extends BaseServices{
 	@Path("/create")
 	@Produces({MediaType.APPLICATION_JSON})
 	public String createMinistry(Ministerio usr) {
-				 dao.post(usr);
+				 dao.salvar(usr);
 		return gs.toJson("ok");
 	}
 	

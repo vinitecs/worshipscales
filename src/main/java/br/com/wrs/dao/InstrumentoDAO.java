@@ -90,8 +90,13 @@ public  class InstrumentoDAO extends DAO {
 		
 		
 	}
-	
-	
+
+	@Override
+	public Entidade getById(UUID id) {
+		return null;
+	}
+
+
 	public List<Instrumento> listar() {
 		
 		String sql = " SELECT * "

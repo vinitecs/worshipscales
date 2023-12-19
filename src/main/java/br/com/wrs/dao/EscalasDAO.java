@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Repository
 public class EscalasDAO extends DAO{
@@ -166,6 +167,11 @@ public class EscalasDAO extends DAO{
 		parameters.addValue("min_id", sc.getMinId());
 		parameters.addValue("data_escala", sc.getDataEscala(), java.sql.Types.DATE);
 		
+	}
+
+	@Override
+	public Entidade getById(UUID id) {
+		return null;
 	}
 
 }

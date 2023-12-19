@@ -5,6 +5,7 @@ import br.com.wrs.base.Entidade;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Repository
 public class UsuarioLiderDAO extends DAO {
@@ -49,6 +50,11 @@ public class UsuarioLiderDAO extends DAO {
 	protected void fillParameters(Entidade object) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Entidade getById(UUID id) {
+		return null;
 	}
 
 }

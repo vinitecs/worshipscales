@@ -8,6 +8,8 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.UUID;
+
 @Transactional
 public abstract  class DAO<E extends Entidade>{
 
@@ -53,44 +55,45 @@ protected final String WHERE_AND = "";
 
 	abstract protected void fillParameters(Entidade object);
 
-	public void post(E object) {
+	public void salvar(E object) {
 		getEntityManager().persist(object);
 		getEntityManager().flush();
 	}
 
-protected String toFilter(Entidade object){
-	return this.filter;
-}
-
-protected String filterSQL(Entidade object) {
-	filter = "";
-	
-	return prepareFilter(object);
-}
-	
-private String prepareFilter(Entidade object) {
-	
-	if (object instanceof SC) {
-		SC sc = (SC) object;
-		
-		String f = sc.filterSQL();
-		this.parameters = sc.getParameters();
-
-		return f;
-	} else {
-		fillParameters(object);
-
-		return toFilter(object);
+    public abstract E getById(UUID id);
+	protected String toFilter(Entidade object){
+		return this.filter;
 	}
-}	
 
-private String filter = "";
+	protected String filterSQL(Entidade object) {
+		filter = "";
 
-protected void addFilter(String f) {
-	addFilter(f, whereAnd(filter));		
-}
+		return prepareFilter(object);
+	}
 
-protected void addFilter(String f, String condition) {
-	filter += " " + condition + f + " ";
-}	
+	private String prepareFilter(Entidade object) {
+
+		if (object instanceof SC) {
+			SC sc = (SC) object;
+
+			String f = sc.filterSQL();
+			this.parameters = sc.getParameters();
+
+			return f;
+		} else {
+			fillParameters(object);
+
+			return toFilter(object);
+		}
+	}
+
+	private String filter = "";
+
+	protected void addFilter(String f) {
+		addFilter(f, whereAnd(filter));
+	}
+
+	protected void addFilter(String f, String condition) {
+		filter += " " + condition + f + " ";
+	}
 }

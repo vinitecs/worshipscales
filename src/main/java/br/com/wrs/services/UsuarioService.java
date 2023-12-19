@@ -31,7 +31,7 @@ public class UsuarioService extends Endpoint {
 	@Path("/create")
 	public Response createUser(Usuario user) {
 		user.setSenha(bc.encode(user.getSenha()));
-		dao.post(user);
+		dao.salvar(user);
 		return Response.ok(user).build();
 	}
 
