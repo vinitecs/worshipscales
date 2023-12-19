@@ -1,12 +1,12 @@
-package br.com.wrs.bean;
+package br.com.wrs.modelo;
 
 import javax.ws.rs.FormParam;
 
 
-import br.com.wrs.base.Bean;
+import br.com.wrs.base.Entidade;
 import br.com.wrs.enums.Perfil;
 
-public class Usuario extends Bean{
+public class Usuario extends Entidade {
 
 	
 		

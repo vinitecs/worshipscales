@@ -1,4 +1,4 @@
-package br.com.wrs.bc;
+package br.com.wrs.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

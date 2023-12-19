@@ -8,12 +8,12 @@
 		<version>2.5.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>br.com.vd</groupId>
-	<artifactId>lanchonete</artifactId>
+	<groupId>br.com.wrs</groupId>
+	<artifactId>worshipscales</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>lanchonete</name>
-	<description>Sistema de pedidos web </description>
+	<name>worshipscales</name>
+	<description>Sistema de Escalas  </description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -76,6 +76,26 @@
         <artifactId>jaxb-impl</artifactId>
         <version>2.3.1</version>
     </dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>6.4.1.Final</version>
+			<type>pom</type>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>5.6.15.Final</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>

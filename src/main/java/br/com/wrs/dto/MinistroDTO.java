@@ -2,7 +2,7 @@ package br.com.wrs.dto;
 
 import java.util.ArrayList;
 
-import br.com.wrs.bean.Instrumento;
+import br.com.wrs.modelo.Instrumento;
 
 public class MinistroDTO {
 	

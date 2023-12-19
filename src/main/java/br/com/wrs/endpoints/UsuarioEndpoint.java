@@ -1,8 +1,8 @@
-package br.com.wrs.service;
+package br.com.wrs.endpoints;
 
 import br.com.wrs.base.BaseServices;
 import br.com.wrs.dao.UsuarioDAO;
-import br.com.wrs.bean.Usuario;
+import br.com.wrs.modelo.Usuario;
 import br.com.wrs.util.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ import javax.ws.rs.core.MediaType;
 
 @Service
 @Path("/user")
-public class UsuarioService extends BaseServices{
+public class UsuarioEndpoint extends BaseServices{
 	
 	
 	@Autowired

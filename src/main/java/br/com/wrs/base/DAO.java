@@ -1,18 +1,12 @@
 package br.com.wrs.base;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-/*
-import br.com.vd.base.Bean;
-import br.com.vd.base.SC;
-import br.com.vd.bean.UsuarioEmpresa;
-*/
-import br.com.wrs.util.Util;
-public abstract  class DAO {
+
+import java.util.List;
+public abstract  class DAO<E extends Entidade> {
 	
 	
 protected final String WHERE = " where ";
@@ -34,44 +28,44 @@ protected final String WHERE_AND = "";
 	@Autowired
 	protected JdbcTemplate jdbcTemplate;
 
-  public abstract boolean checkUser(Bean  object);
+  public abstract boolean checkUser(E object);
 
 
-abstract protected Object insert(Bean object);
-abstract protected Object update(Bean object);
+abstract protected Object insert(E object);
+abstract protected Object update(E object);
 
 //abstract public Object post(Bean object);
-abstract public Object getById(Bean object);
+abstract public Object getById(E object);
 
 abstract public List<?> getByFilter(String filter);
 //abstract public List<?> getAll();
-abstract public List<?> getAll(Bean object);
+abstract public List<?> getAll(Entidade object);
 
-abstract public Boolean remove(Bean object);
+abstract public Boolean remove(Entidade object);
 
-abstract protected void fillParameters(Bean object);			
+abstract protected void fillParameters(Entidade object);
 
-public Object post(Bean object) {
+public Object post(E object) {
 	fillParameters(object);		
 	
-	if (Util.returnNull(object.getId()) == null){
+	if (object.isNew(object.getId())){
 		return this.insert(object);
 	} else {
 		return this.update(object);				
 	}
 }
 
-protected String toFilter(Bean object){
+protected String toFilter(Entidade object){
 	return this.filter;
 }
 
-protected String filterSQL(Bean object) {
+protected String filterSQL(Entidade object) {
 	filter = "";
 	
 	return prepareFilter(object);
 }
 	
-private String prepareFilter(Bean object) {
+private String prepareFilter(Entidade object) {
 	
 	if (object instanceof SC) {
 		SC sc = (SC) object;

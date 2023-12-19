@@ -1,9 +1,9 @@
 package br.com.wrs.dao;
 
-import br.com.wrs.base.Bean;
+import br.com.wrs.base.Entidade;
 import br.com.wrs.base.DAO;
 import br.com.wrs.dto.InstrumentoDTO;
-import br.com.wrs.bean.Instrumento;
+import br.com.wrs.modelo.Instrumento;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Repository;
@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.UUID;
 
 @Repository
 public  class InstrumentoDAO extends DAO {
@@ -19,7 +20,7 @@ public  class InstrumentoDAO extends DAO {
 		public Instrumento mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Instrumento ins = new Instrumento();
 
-				ins.setId(rs.getInt("ins_id"));
+				ins.setId(UUID.fromString(rs.getString("ins_id")));
 				ins.setNomeInstrumento(rs.getString("nome"));
 				
 			return ins;
@@ -43,24 +44,24 @@ public  class InstrumentoDAO extends DAO {
 	
 
 	@Override
-	public boolean checkUser(Bean object) {
+	public boolean checkUser(Entidade object) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	protected Object insert(Bean object) {
+	protected Object insert(Entidade object) {
 		return null;
 	}
 
 	@Override
-	protected Object update(Bean object) {
+	protected Object update(Entidade object) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Object getById(Bean object) {
+	public Object getById(Entidade object) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -78,19 +79,19 @@ public  class InstrumentoDAO extends DAO {
 	}
 
 	@Override
-	public List<?> getAll(Bean object) {
+	public List<?> getAll(Entidade object) {
 
 		return null;
 	}
 
 	@Override
-	public Boolean remove(Bean object) {
+	public Boolean remove(Entidade object) {
 		return null;
 	}
 
 
 	@Override
-	protected void fillParameters(Bean object) {
+	protected void fillParameters(Entidade object) {
 		
 		
 	}

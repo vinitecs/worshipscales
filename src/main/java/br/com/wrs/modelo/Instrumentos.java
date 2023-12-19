@@ -1,8 +1,8 @@
-package br.com.wrs.bean;
+package br.com.wrs.modelo;
 
-import br.com.wrs.base.Bean;
+import br.com.wrs.base.Entidade;
 
-public class Instrumentos extends Bean{
+public class Instrumentos extends Entidade {
 	 	
 	 	private Integer usr_id;
 	 	private String nome;

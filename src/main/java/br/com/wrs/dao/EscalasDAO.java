@@ -1,24 +1,27 @@
 package br.com.wrs.dao;
 
+import br.com.wrs.base.DAO;
+import br.com.wrs.base.Entidade;
+import br.com.wrs.dto.EscalasDTO;
+import br.com.wrs.dto.MinistroEscaladoDTO;
+import br.com.wrs.modelo.Escalas;
+import br.com.wrs.modelo.UsuarioEscala;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.stereotype.Repository;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.stereotype.Repository;
-
-import br.com.wrs.base.Bean;
-import br.com.wrs.base.DAO;
-import br.com.wrs.bean.Escalas;
-import br.com.wrs.bean.UsuarioEscala;
-import br.com.wrs.dto.EscalasDTO;
-import br.com.wrs.dto.MinistroEscaladoDTO;
-
 @Repository
 public class EscalasDAO extends DAO{
-	
+
+	/*@Qualifier("dwEntityManager")
+	@Autowired
+	protected EntityManager dwEntityManager;*/
+
 	RowMapper<EscalasDTO> listEscalas = new RowMapper<EscalasDTO>() {
 		
 		public EscalasDTO mapRow(ResultSet rs, int rowColumn) throws SQLException {
@@ -42,13 +45,13 @@ public class EscalasDAO extends DAO{
 	
 	
 	@Override
-	public boolean checkUser(Bean object) {
+	public boolean checkUser(Entidade object) {
 		 
 		return false;
 	}
 
 	@Override
-	protected Object insert(Bean object) {
+	protected Object insert(Entidade object) {
 		Escalas sc = (Escalas) object;
 		
 		String sql ="INSERT INTO ESCALAS ("
@@ -85,13 +88,13 @@ public class EscalasDAO extends DAO{
 	}
 
 	@Override
-	protected Object update(Bean object) {
+	protected Object update(Entidade object) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Object getById(Bean object) {
+	public Object getById(Entidade object) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -103,7 +106,7 @@ public class EscalasDAO extends DAO{
 	}
 
 	@Override
-	public List<?> getAll(Bean object) {
+	public List<?> getAll(Entidade object) {
 
 		return null;
 
@@ -139,7 +142,7 @@ public class EscalasDAO extends DAO{
 	}
 
 	@Override
-	public Boolean remove(Bean object) {
+	public Boolean remove(Entidade object) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -165,7 +168,7 @@ public class EscalasDAO extends DAO{
 	
 	
 	@Override
-	protected void fillParameters(Bean object) {
+	protected void fillParameters(Entidade object) {
 		Escalas  sc =  (Escalas) object;		
 		parameters = new MapSqlParameterSource();
 		parameters.addValue("min_id", sc.getMinId());

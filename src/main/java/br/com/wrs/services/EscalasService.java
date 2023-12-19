@@ -1,4 +1,4 @@
-package br.com.wrs.bc;
+package br.com.wrs.services;
 
 import javax.ws.rs.BeanParam;
 import javax.ws.rs.GET;
@@ -9,17 +9,16 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.wrs.base.BC;
-import br.com.wrs.bean.Escalas;
-import br.com.wrs.bean.UsuarioEscala;
+import br.com.wrs.modelo.Escalas;
+import br.com.wrs.modelo.UsuarioEscala;
 import br.com.wrs.dao.EscalasDAO;
 
 @Service
 @Path("/scales")
-public class EscalasBC extends BC{
+public class EscalasService extends BC{
 
 	
 	@Autowired

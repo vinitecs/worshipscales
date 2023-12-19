@@ -1,4 +1,4 @@
-package br.com.wrs.bc;
+package br.com.wrs.services;
 
 import br.com.wrs.base.BaseServices;
 import br.com.wrs.security.UserSS;

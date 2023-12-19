@@ -1,27 +1,20 @@
-package br.com.wrs.bc;
+package br.com.wrs.services;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.ws.rs.BeanParam;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
-
+import br.com.wrs.base.BC;
+import br.com.wrs.dao.MinisterioDAO;
+import br.com.wrs.dto.MinisterioDTO;
+import br.com.wrs.modelo.Ministerio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.wrs.base.BC;
-import br.com.wrs.bean.Ministerio;
-import br.com.wrs.dao.MinisterioDAO;
-import br.com.wrs.dto.MinisterioDTO;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
+import java.util.UUID;
 
 @Service
 @Path("/ministerio")
-public class MinisterioBC extends BC{
+public class MinisterioService extends BC{
 	
 	
 	@Autowired
@@ -30,7 +23,7 @@ public class MinisterioBC extends BC{
 	
 	@GET
 	@Produces({MediaType.APPLICATION_JSON})
-	public String getListMinistery(@QueryParam("user_id") Integer user_id) {
+	public String getListMinistery(@QueryParam("user_id") UUID user_id) {
 		
 		Ministerio min = new Ministerio();
 		min.setId(user_id);

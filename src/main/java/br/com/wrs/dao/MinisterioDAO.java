@@ -1,20 +1,20 @@
 package br.com.wrs.dao;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
+import br.com.wrs.base.DAO;
+import br.com.wrs.base.Entidade;
+import br.com.wrs.dto.MinisterioDTO;
+import br.com.wrs.dto.MinistroDTO;
+import br.com.wrs.modelo.Instrumento;
+import br.com.wrs.modelo.Ministerio;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Repository;
 
-import br.com.wrs.base.Bean;
-import br.com.wrs.base.DAO;
-import br.com.wrs.bean.Instrumento;
-import br.com.wrs.bean.Ministerio;
-import br.com.wrs.dto.MinisterioDTO;
-import br.com.wrs.dto.MinistroDTO;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 @Repository
 public class MinisterioDAO extends DAO{
@@ -54,20 +54,20 @@ public class MinisterioDAO extends DAO{
 		public Instrumento mapRow(ResultSet rs, int rowNum) throws SQLException{
 			Instrumento ins = new Instrumento();
 			
-		ins.setId(rs.getInt("ins_id"));
+		ins.setId(UUID.fromString(rs.getString("ins_id")));
 		ins.setNomeInstrumento(rs.getString("nome"));
 			return ins;
 		}
 	};
 
 	@Override
-	public boolean checkUser(Bean object) {
+	public boolean checkUser(Entidade object) {
 
 		return false;
 	}
 
 	@Override
-	protected Object insert(Bean object) {
+	protected Object insert(Entidade object) {
 		Ministerio min = (Ministerio) object;
 		
 		String sql = "INSERT INTO MINISTERIO ("
@@ -86,13 +86,13 @@ public class MinisterioDAO extends DAO{
 	}
 
 	@Override
-	protected Object update(Bean object) {
+	protected Object update(Entidade object) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Object getById(Bean object) {
+	public Object getById(Entidade object) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -104,7 +104,7 @@ public class MinisterioDAO extends DAO{
 	}
 
 	@Override
-	public List<?> getAll(Bean object) {
+	public List<?> getAll(Entidade object) {
 		Ministerio min = (Ministerio) object;
 
 		String sql = " SELECT MINS.min_id AS minId "
@@ -120,7 +120,7 @@ public class MinisterioDAO extends DAO{
 	}
 	
 	
-	public ArrayList<MinisterioDTO> getMinisterio(Integer usrId){
+	public ArrayList<MinisterioDTO> getMinisterio(UUID usrId){
 		
 		String sql = " SELECT MINS.min_id AS minId"
 				    + "  ,MINS.usr_id_lider AS lider_id "
@@ -169,13 +169,13 @@ public class MinisterioDAO extends DAO{
 	}
 
 	@Override
-	public Boolean remove(Bean object) {
+	public Boolean remove(Entidade object) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	protected void fillParameters(Bean obj) {
+	protected void fillParameters(Entidade obj) {
 		Ministerio min = (Ministerio) obj;
 		
 		parameters = new MapSqlParameterSource();

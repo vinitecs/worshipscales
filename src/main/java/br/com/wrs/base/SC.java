@@ -2,7 +2,7 @@ package br.com.wrs.base;
 
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 
-public abstract class SC extends Bean {
+public abstract class SC extends Entidade {
 	
 	protected final String WHERE = " where ";
 	protected final String AND = " and ";

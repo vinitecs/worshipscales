@@ -1,10 +1,10 @@
-package br.com.wrs.bean;
+package br.com.wrs.modelo;
 
 import javax.ws.rs.FormParam;
 
-import br.com.wrs.base.Bean;
+import br.com.wrs.base.Entidade;
 
-public class UsuarioInstrumento extends Bean {
+public class UsuarioInstrumento extends Entidade {
 	
 		
 		@FormParam("usrId")

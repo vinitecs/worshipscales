@@ -1,7 +1,7 @@
-package br.com.wrs.bc;
+package br.com.wrs.services;
 
 import br.com.wrs.base.BC;
-import br.com.wrs.bean.Usuario;
+import br.com.wrs.modelo.Usuario;
 import br.com.wrs.dao.UsuarioDAO;
 import br.com.wrs.util.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import javax.ws.rs.core.MediaType;
 
 @Service
 @Path("/user")
-public class UsuarioBC extends BC{
+public class UsuarioService extends BC{
 	
 	
 	@Autowired

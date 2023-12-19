@@ -1,7 +1,7 @@
-package br.com.wrs.service;
+package br.com.wrs.endpoints;
 
 import br.com.wrs.base.BaseServices;
-import br.com.wrs.bean.Ministerio;
+import br.com.wrs.modelo.Ministerio;
 import br.com.wrs.dao.MinisterioDAO;
 import br.com.wrs.dto.MinisterioDTO;
 
@@ -11,10 +11,11 @@ import org.springframework.stereotype.Service;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
+import java.util.UUID;
 
 @Service
 @Path("/ministerio")
-public class MinisterioSerivce extends BaseServices{
+public class MinisterioEndpoint extends BaseServices{
 	
 	
 	@Autowired
@@ -23,7 +24,7 @@ public class MinisterioSerivce extends BaseServices{
 	
 	@GET
 	@Produces({MediaType.APPLICATION_JSON})
-	public String getListMinistery(@QueryParam("userId") Integer user_id) {
+	public String getListMinistery(@QueryParam("userId") UUID user_id) {
 		
 		Ministerio min = new Ministerio();
 		min.setId(user_id);

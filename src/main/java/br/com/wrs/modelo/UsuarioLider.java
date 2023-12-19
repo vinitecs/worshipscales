@@ -1,8 +1,8 @@
-package br.com.wrs.bean;
+package br.com.wrs.modelo;
 
-import br.com.wrs.base.Bean;
+import br.com.wrs.base.Entidade;
 
-public class UsuarioLider extends Bean{
+public class UsuarioLider extends Entidade {
 
 	
 

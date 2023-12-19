@@ -1,10 +1,8 @@
-package br.com.wrs.bean;
+package br.com.wrs.modelo;
 
-import javax.ws.rs.FormParam;
+import br.com.wrs.base.Entidade;
 
-import br.com.wrs.base.Bean;
-
-public class Instrumento extends Bean{
+public class Instrumento extends Entidade {
 
 		private Integer minId; 
 		private  String nomeInstrumento;

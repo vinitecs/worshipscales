@@ -8,9 +8,9 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Repository;
 
-import br.com.wrs.base.Bean;
+import br.com.wrs.base.Entidade;
 import br.com.wrs.base.DAO;
-import br.com.wrs.bean.Usuario;
+import br.com.wrs.modelo.Usuario;
 import br.com.wrs.dto.CredenciaisDTO;
 import br.com.wrs.enums.Perfil;
 
@@ -32,13 +32,13 @@ public class UsuarioDAO extends DAO{
 	};
 
 	@Override
-	public boolean checkUser(Bean object) {
+	public boolean checkUser(Entidade object) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	protected Object insert(Bean object) {
+	protected Object insert(Entidade object) {
 		Usuario usr = (Usuario) object;
 		
 		String sql =  "INSERT INTO USUARIO ("					
@@ -63,13 +63,13 @@ public class UsuarioDAO extends DAO{
 	}
 
 	@Override
-	protected Object update(Bean object) {
+	protected Object update(Entidade object) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Object getById(Bean object) {
+	public Object getById(Entidade object) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -81,13 +81,13 @@ public class UsuarioDAO extends DAO{
 	}
 
 	@Override
-	public List<?> getAll(Bean object) {
+	public List<?> getAll(Entidade object) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Boolean remove(Bean object) {
+	public Boolean remove(Entidade object) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -109,7 +109,7 @@ public class UsuarioDAO extends DAO{
 	}
 
 	@Override
-	protected void fillParameters(Bean obj) {
+	protected void fillParameters(Entidade obj) {
 		
 		Usuario usr = (Usuario) obj;
 		parameters = new  MapSqlParameterSource();		

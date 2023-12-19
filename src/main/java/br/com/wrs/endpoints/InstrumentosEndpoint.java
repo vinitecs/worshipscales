@@ -1,9 +1,9 @@
-package br.com.wrs.service;
+package br.com.wrs.endpoints;
 
 import br.com.wrs.base.BaseServices;
 import br.com.wrs.dao.InstrumentoDAO;
 import br.com.wrs.dto.InstrumentoDTO;
-import br.com.wrs.bean.Instrumento;
+import br.com.wrs.modelo.Instrumento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ import java.util.List;
 
 @Service
 @Path("/instrumentos")
-public class InstrumentosService extends BaseServices {
+public class InstrumentosEndpoint extends BaseServices {
 	
 	
 	@Autowired
