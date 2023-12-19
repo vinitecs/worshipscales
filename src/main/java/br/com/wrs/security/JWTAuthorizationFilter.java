@@ -31,7 +31,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 		String getHeader = req.getHeader("Authorization");
 
 
-		if(getHeader == null || getHeader.startsWith("Bearer ")) {
+		if(getHeader != null  && getHeader.startsWith("Bearer ")) {
 			UsernamePasswordAuthenticationToken auth = getAuthentication(req, getHeader.substring(7));
 
 			if(auth != null) {

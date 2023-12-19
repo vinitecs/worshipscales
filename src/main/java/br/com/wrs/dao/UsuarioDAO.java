@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.UUID;
 
 @Repository
 public class UsuarioDAO extends DAO{
@@ -20,7 +21,7 @@ public class UsuarioDAO extends DAO{
 
 		public CredenciaisDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
 			CredenciaisDTO usr = new CredenciaisDTO();
-        	usr.setUsrId(rs.getInt("usr_id"));
+        	usr.setId(UUID.fromString(rs.getString("id")));
         	usr.setUsuario(rs.getString("email"));
         	usr.setEmail(rs.getString("email"));
         	usr.setSenha(rs.getString("senha"));
@@ -38,27 +39,8 @@ public class UsuarioDAO extends DAO{
 
 	@Override
 	protected Object insert(Entidade object) {
-		Usuario usr = (Usuario) object;
-		
-		String sql =  "INSERT INTO USUARIO ("					
-										+ "  nome"
-										+ ", email"
-										+ ", senha"
-										+ ", datanascimento"
-										+ ", telefone"
-										+ ", perfil"
-										+ "  )VALUES( "
-										+  " :nome"
-										+ ", :email"
-										+ ", :senha"
-										+ ", :datanascimento "
-										+ ", :telefone"
-										+ ", :perfil"
-										+ " )";
-		
-		fillParameters(usr);
-		System.out.println(sql);
-		return namedJdbcTemplate.update(sql,parameters);
+
+		return null ;
 	}
 
 	@Override
@@ -88,7 +70,7 @@ public class UsuarioDAO extends DAO{
 	public CredenciaisDTO auth(String email) {
 		
 		String sql = " SELECT "
-					+ " USR.usr_id"
+					+ " USR.id"
 					+ ",USR.email"
 					+ ",USR.senha"
 					+ ",USR.perfil"					

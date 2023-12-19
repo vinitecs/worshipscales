@@ -41,7 +41,7 @@ public class MinisterioDAO extends DAO{
 		public MinistroDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
 			MinistroDTO mins = new MinistroDTO();
 			
-			mins.setUsr_id(rs.getInt("usr_id"));
+			mins.setUsrId(rs.getInt("usr_id"));
 			mins.setNome(rs.getString("nome"));
 			if(rs.getString("tipo_ministerio").equals("m")) {				
 				mins.setInstrumento(getMinistroInstrumento(rs.getInt("usr_id")));

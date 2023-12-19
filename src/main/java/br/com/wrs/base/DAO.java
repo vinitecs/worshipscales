@@ -6,7 +6,9 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 import java.util.List;
+@Transactional
 public abstract  class DAO<E extends Entidade>{
 
 	
@@ -36,21 +38,20 @@ protected final String WHERE_AND = "";
 		return entityManager;
 	}
 
-  public abstract boolean checkUser(E object);
+ 	public abstract boolean checkUser(E object);
 
+	abstract protected Object insert(E object);
+	abstract protected Object update(E object);
 
-abstract protected Object insert(E object);
-abstract protected Object update(E object);
+	//abstract public Object post(Bean object);
 
-//abstract public Object post(Bean object);
+	abstract public List<?> getByFilter(String filter);
+	//abstract public List<?> getAll();
+	abstract public List<?> getAll(Entidade object);
 
-abstract public List<?> getByFilter(String filter);
-//abstract public List<?> getAll();
-abstract public List<?> getAll(Entidade object);
+	abstract public Boolean remove(Entidade object);
 
-abstract public Boolean remove(Entidade object);
-
-abstract protected void fillParameters(Entidade object);
+	abstract protected void fillParameters(Entidade object);
 
 	public void post(E object) {
 		getEntityManager().persist(object);

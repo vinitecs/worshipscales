@@ -1,6 +1,7 @@
 package br.com.wrs.services;
 
 import br.com.wrs.base.BaseServices;
+import br.com.wrs.dao.UsuarioDAO;
 import br.com.wrs.security.UserSS;
 import br.com.wrs.util.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -20,6 +22,9 @@ public class AuthResource extends BaseServices {
 	
 	@Autowired
 	JWTUtil jwt;
+
+	@Autowired
+	private UsuarioDAO usuarioService;
 	
 	@POST
 	@Path("/refresh_token")
@@ -32,7 +37,15 @@ public class AuthResource extends BaseServices {
 		return ResponseEntity.noContent().build();
 	}
 	
-	
+	@GET
+	@Path("usuario_logado")
+	@Produces({MediaType.APPLICATION_JSON})
+	public ResponseEntity usuarioLogado(@Context  HttpServletResponse response){
+		UserSS user = isAutenticated();
+
+
+		return ResponseEntity.ok(user);
+	}
 	
 
 }

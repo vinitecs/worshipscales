@@ -23,7 +23,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 		}
 		CredenciaisDTO cred = usr.auth(username) ;
 		
-		return new UserSS(cred.getUsrId(),cred.getUsuario(),cred.getSenha(),cred.getEmail(),cred.getPerfis());
+		return new UserSS(cred.getId(),cred.getUsuario(),cred.getSenha(),cred.getEmail(),cred.getPerfis());
 	}
 
 }

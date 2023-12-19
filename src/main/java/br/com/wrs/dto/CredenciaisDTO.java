@@ -6,13 +6,14 @@ import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Getter
 @Setter
 public class CredenciaisDTO {
 	
-	private Integer usrId;
+	private UUID id;
 	private String usuario;
 	private String senha;
 	private String email;

@@ -30,8 +30,7 @@ public class SecurityConfig   extends WebSecurityConfigurerAdapter{
 		};
 	
 		private static String[] PUBLIC_MATCHERS_POST = {
-			//	"/wrs/user/"
-			"/wrs/authResource/refresh_token "
+			"/wrs/**"
 		};
 		
 		private static String[] PUBLIC_MATCHERS_GET = {

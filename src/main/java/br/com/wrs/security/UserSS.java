@@ -1,20 +1,20 @@
 package br.com.wrs.security;
 
-import java.util.Collection;
-import java.util.Set;
-import java.util.stream.Collectors;
-
+import br.com.wrs.enums.Perfil;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import br.com.wrs.enums.Perfil;
+import java.util.Collection;
+import java.util.Set;
+import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class UserSS implements UserDetails{
 	
 	
 	private static final long serialVersionUID = 1L;
-	private Integer id;
+	private UUID id;
 	private String usuario;
 	private String senha;
 	private String email;
@@ -23,8 +23,8 @@ public class UserSS implements UserDetails{
 	
 	
 
-	public UserSS(Integer id, String usuario, String senha, String email,
-			Set<Perfil> perfis) {
+	public UserSS(UUID id, String usuario, String senha, String email,
+				  Set<Perfil> perfis) {
 		super();
 		this.id = id;
 		this.usuario = usuario;
@@ -33,9 +33,7 @@ public class UserSS implements UserDetails{
 		this.authority =  perfis.stream().map(x -> new SimpleGrantedAuthority(x.getDescricao())).collect(Collectors.toList());
 	}
 
-	public Integer getId() {
-		return id;
-	} 
+
 	
 	public String getEmail() {
 		return email;
