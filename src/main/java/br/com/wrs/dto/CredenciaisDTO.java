@@ -1,13 +1,15 @@
 package br.com.wrs.dto;
 
+import br.com.wrs.enums.Perfil;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import br.com.wrs.enums.Perfil;
-
-
-
+@Getter
+@Setter
 public class CredenciaisDTO {
 	
 	private Integer usrId;

@@ -1,9 +1,13 @@
 package br.com.wrs.dto;
 
+import br.com.wrs.modelo.Instrumento;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 
-import br.com.wrs.modelo.Instrumento;
-
+@Getter
+@Setter
 public class MinistroDTO {
 	
 	private Integer usr_id;

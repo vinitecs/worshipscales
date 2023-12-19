@@ -1,24 +1,18 @@
 package br.com.wrs.services;
 
-import javax.ws.rs.BeanParam;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
-
+import br.com.wrs.base.Endpoint;
+import br.com.wrs.dao.EscalasDAO;
+import br.com.wrs.modelo.Escalas;
+import br.com.wrs.modelo.UsuarioEscala;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.wrs.base.BC;
-import br.com.wrs.modelo.Escalas;
-import br.com.wrs.modelo.UsuarioEscala;
-import br.com.wrs.dao.EscalasDAO;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 
 @Service
 @Path("/scales")
-public class EscalasService extends BC{
+public class EscalasService extends Endpoint {
 
 	
 	@Autowired
@@ -28,12 +22,8 @@ public class EscalasService extends BC{
 	@Produces({MediaType.APPLICATION_JSON})
 	@Path("/createScale")
 	public String createScale(@BeanParam Escalas sc) throws Exception{
-		Integer res = (Integer) dao.post(sc);
-		
-		if(res < 0) {
-			return  gs.toJson("escala não foi criada ");
-		}
-		return  gs.toJson(sc);
+		dao.post(sc);
+		return  gs.toJson("ok");
 	}
 	
 	

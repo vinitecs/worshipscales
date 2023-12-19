@@ -14,8 +14,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
-
-
 @Service
 @Path("/authResource")
 public class AuthResource extends BaseServices {

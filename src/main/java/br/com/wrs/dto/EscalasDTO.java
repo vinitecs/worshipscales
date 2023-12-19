@@ -1,8 +1,12 @@
 package br.com.wrs.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.Date;
-
+@Getter
+@Setter
 public class EscalasDTO {
 
 	private Long escalaId;

@@ -12,7 +12,7 @@ import javax.ws.rs.FormParam;
 @Getter
 @Setter
 @Entity
-@Table(name="escalas")
+@Table(schema = "public", name="escalas")
 public class Escalas extends Entidade {
 
 		@FormParam("minId")

@@ -8,9 +8,7 @@ import javax.ws.rs.ApplicationPath;
 @Component
 @ApplicationPath("/wrs")
 public class JerseyAppConfig extends ResourceConfig {
-	
 	public JerseyAppConfig() {
-		packages("br.com.wrs.bc");
+		packages("br.com.wrs.services");
 	}
-
 }

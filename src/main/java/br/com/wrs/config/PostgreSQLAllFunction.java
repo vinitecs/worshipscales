@@ -1,4 +1,4 @@
-package br.com.wrs.config.dialectConfig;
+package br.com.wrs.config;
 
 import org.hibernate.QueryException;
 import org.hibernate.dialect.function.SQLFunction;
@@ -8,7 +8,7 @@ import org.hibernate.type.Type;
 
 import java.util.List;
 
-public class PostgreSQLAnyFunction implements SQLFunction {
+public class PostgreSQLAllFunction implements SQLFunction {
 
     @Override
     public boolean hasArguments() {
@@ -27,6 +27,6 @@ public class PostgreSQLAnyFunction implements SQLFunction {
 
     @Override
     public String render(Type firstArgumentType, List args, SessionFactoryImplementor factory) throws QueryException {
-        return "any(" + args.get(0) + ")";
+        return "all(" + args.get(0) + ")";
     }
 }

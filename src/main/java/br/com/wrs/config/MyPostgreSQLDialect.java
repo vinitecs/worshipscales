@@ -1,12 +1,13 @@
-package br.com.wrs.config.dialectConfig;
+package br.com.wrs.config;
 
 import org.hibernate.dialect.PostgreSQL95Dialect;
 
 import java.sql.Types;
 import java.util.UUID;
 
-public class PostgresDialect95Config  extends PostgreSQL95Dialect {
-    public PostgresDialect95Config(){
+public class MyPostgreSQLDialect  extends PostgreSQL95Dialect {
+
+    public MyPostgreSQLDialect(){
         super();
         registerFunction("any", new PostgreSQLAnyFunction());
         registerFunction("unnest", new PostgreSQLUnnestFunction());

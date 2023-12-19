@@ -92,12 +92,6 @@ public class MinisterioDAO extends DAO{
 	}
 
 	@Override
-	public Object getById(Entidade object) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public List<?> getByFilter(String filter) {
 		// TODO Auto-generated method stub
 		return null;
@@ -177,12 +171,11 @@ public class MinisterioDAO extends DAO{
 	@Override
 	protected void fillParameters(Entidade obj) {
 		Ministerio min = (Ministerio) obj;
-		
+
 		parameters = new MapSqlParameterSource();
 		parameters.addValue("nome", min.getNome());
-		parameters.addValue("datacriacao", min.getDataCricacao(),java.sql.Types.DATE);
 		parameters.addValue("usr_id_lider", min.getUsuarioLiderId());
-		
+
 	}
 
 }

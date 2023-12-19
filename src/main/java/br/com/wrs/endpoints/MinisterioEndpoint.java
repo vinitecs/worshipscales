@@ -42,8 +42,8 @@ public class MinisterioEndpoint extends BaseServices{
 	@Path("/create")
 	@Produces({MediaType.APPLICATION_JSON})
 	public String createMinistry(Ministerio usr) {
-		Integer CadMin = (Integer) dao.post(usr);
-		return gs.toJson(CadMin);
+				 dao.post(usr);
+		return gs.toJson("ok");
 	}
 	
 

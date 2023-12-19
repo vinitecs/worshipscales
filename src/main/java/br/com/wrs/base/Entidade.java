@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.util.Objects;
 import java.util.UUID;
@@ -14,6 +15,7 @@ import java.util.UUID;
 @MappedSuperclass
 public class Entidade {
 
+	@Id
 	@GeneratedValue
 	private UUID id;
 

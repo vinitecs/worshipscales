@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    database: postgres
+    url: jdbc:postgresql://localhost:5432/worshipscales
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+    tomcat:
+      max-active: 10
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        use_sql_comments: false
+        format_sql: true
+        temp:
+          use_jdbc_metadata_defaults: false
+    database-platform: br.com.wrs.config.MyPostgreSQLDialect
+
+jwt:
+  secret : "SequenciaDecaracteresParaAssinarToken"
+  expiration: 90000

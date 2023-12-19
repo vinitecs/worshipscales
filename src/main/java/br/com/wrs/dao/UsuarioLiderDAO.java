@@ -1,11 +1,10 @@
 package br.com.wrs.dao;
 
-import java.util.List;
-
+import br.com.wrs.base.DAO;
+import br.com.wrs.base.Entidade;
 import org.springframework.stereotype.Repository;
 
-import br.com.wrs.base.Entidade;
-import br.com.wrs.base.DAO;
+import java.util.List;
 
 @Repository
 public class UsuarioLiderDAO extends DAO {
@@ -24,12 +23,6 @@ public class UsuarioLiderDAO extends DAO {
 
 	@Override
 	protected Object update(Entidade object) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Object getById(Entidade object) {
 		// TODO Auto-generated method stub
 		return null;
 	}

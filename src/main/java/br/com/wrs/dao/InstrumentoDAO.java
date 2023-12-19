@@ -60,11 +60,6 @@ public  class InstrumentoDAO extends DAO {
 		return null;
 	}
 
-	@Override
-	public Object getById(Entidade object) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public List<Instrumento> getByFilter(String filter) {

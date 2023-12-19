@@ -1,6 +1,6 @@
 package br.com.wrs.services;
 
-import br.com.wrs.base.BC;
+import br.com.wrs.base.Endpoint;
 import br.com.wrs.dao.MinisterioDAO;
 import br.com.wrs.dto.MinisterioDTO;
 import br.com.wrs.modelo.Ministerio;
@@ -14,7 +14,7 @@ import java.util.UUID;
 
 @Service
 @Path("/ministerio")
-public class MinisterioService extends BC{
+public class MinisterioService extends Endpoint {
 	
 	
 	@Autowired
@@ -41,8 +41,8 @@ public class MinisterioService extends BC{
 	@Path("/create")
 	@Produces({MediaType.APPLICATION_JSON})
 	public String createMinistry(@BeanParam Ministerio usr) {
-		Integer CadMin = (Integer) dao.post(usr);
-		return gs.toJson(CadMin);
+		 dao.post(usr);
+		return gs.toJson("ok");
 	}
 	
 

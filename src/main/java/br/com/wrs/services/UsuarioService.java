@@ -1,6 +1,6 @@
 package br.com.wrs.services;
 
-import br.com.wrs.base.BC;
+import br.com.wrs.base.Endpoint;
 import br.com.wrs.modelo.Usuario;
 import br.com.wrs.dao.UsuarioDAO;
 import br.com.wrs.util.JWTUtil;
@@ -16,7 +16,7 @@ import javax.ws.rs.core.MediaType;
 
 @Service
 @Path("/user")
-public class UsuarioService extends BC{
+public class UsuarioService extends Endpoint {
 	
 	
 	@Autowired
@@ -31,8 +31,8 @@ public class UsuarioService extends BC{
 	@Produces({MediaType.APPLICATION_JSON})
 	public String createUser(@BeanParam Usuario user) {
 		user.setSenha(bc.encode(user.getSenha()));
-		Integer usr = (Integer) dao.post(user);
-		return gs.toJson(usr);
+		dao.post(user);
+		return gs.toJson("ok");
 	}
 
 

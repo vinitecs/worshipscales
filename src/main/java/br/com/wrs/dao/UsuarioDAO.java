@@ -1,18 +1,17 @@
 package br.com.wrs.dao;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-
+import br.com.wrs.base.DAO;
+import br.com.wrs.base.Entidade;
+import br.com.wrs.dto.CredenciaisDTO;
+import br.com.wrs.enums.Perfil;
+import br.com.wrs.modelo.Usuario;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Repository;
 
-import br.com.wrs.base.Entidade;
-import br.com.wrs.base.DAO;
-import br.com.wrs.modelo.Usuario;
-import br.com.wrs.dto.CredenciaisDTO;
-import br.com.wrs.enums.Perfil;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
 
 @Repository
 public class UsuarioDAO extends DAO{
@@ -64,12 +63,6 @@ public class UsuarioDAO extends DAO{
 
 	@Override
 	protected Object update(Entidade object) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Object getById(Entidade object) {
 		// TODO Auto-generated method stub
 		return null;
 	}

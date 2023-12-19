@@ -18,9 +18,6 @@ import java.util.List;
 @Repository
 public class EscalasDAO extends DAO{
 
-	/*@Qualifier("dwEntityManager")
-	@Autowired
-	protected EntityManager dwEntityManager;*/
 
 	RowMapper<EscalasDTO> listEscalas = new RowMapper<EscalasDTO>() {
 		
@@ -93,11 +90,6 @@ public class EscalasDAO extends DAO{
 		return null;
 	}
 
-	@Override
-	public Object getById(Entidade object) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public List<?> getByFilter(String filter) {
