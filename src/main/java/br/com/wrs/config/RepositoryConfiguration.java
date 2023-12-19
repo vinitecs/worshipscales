@@ -42,6 +42,7 @@ public class RepositoryConfiguration {
         properties.put("hibernate.hbm2ddl.auto", env.getProperty("spring.hibernate.ddl-auto"));
         properties.put("hibernate.dialect", env.getProperty("spring.database-platform"));
 
+
         return builder
                 .dataSource(dataSource)
                 .packages("br.com.dw.modelo")
